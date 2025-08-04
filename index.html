@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EISEU DEV - Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #0a0a0a;
+            color: #00d4ff;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #001122 0%, #000508 70%);
+            z-index: -2;
+        }
+        
+        .grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .arc-reactor {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto 50px;
+            animation: reactorPulse 3s ease-in-out infinite alternate;
+        }
+        
+        .arc-core {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #ffffff 0%, #00d4ff 50%, #0099cc 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 30px #00d4ff,
+                0 0 60px #00d4ff,
+                0 0 90px #00d4ff,
+                inset 0 0 30px #ffffff;
+            animation: coreGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .arc-inner {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #ffffff;
+        }
+        
+        .arc-ring {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #00d4ff;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 20px #00d4ff,
+                inset 0 0 20px #00d4ff;
+            animation: ringRotate 10s linear infinite;
+        }
+        
+        .arc-ring-2 {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            border-radius: 50%;
+            border-style: dashed;
+            animation: ringRotate2 15s linear infinite reverse;
+        }
+        
+        @keyframes reactorPulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+        
+        @keyframes coreGlow {
+            from { 
+                box-shadow: 
+                    0 0 30px #00d4ff,
+                    0 0 60px #00d4ff,
+                    0 0 90px #00d4ff,
+                    inset 0 0 30px #ffffff;
+            }
+            to { 
+                box-shadow: 
+                    0 0 50px #00d4ff,
+                    0 0 100px #00d4ff,
+                    0 0 150px #00d4ff,
+                    inset 0 0 50px #ffffff;
+            }
+        }
+        
+        @keyframes ringRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes ringRotate2 {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .coming-soon {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 8rem;
+            font-weight: 400;
+            letter-spacing: 12px;
+            margin-bottom: 60px;
+            color: #ffffff;
+            text-shadow: 
+                0 0 15px #ff0000,
+                0 0 30px #ff0000,
+                0 0 45px #ff0000,
+                0 0 60px #ff0000,
+                3px 3px 0px #ff0000,
+                -3px -3px 0px #ff0000;
+            animation: ironManText 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        @keyframes ironManText {
+            from { 
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 40px #ff0000,
+                    2px 2px 0px #ff0000,
+                    -2px -2px 0px #ff0000;
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 
+                    0 0 15px #ff3300,
+                    0 0 30px #ff3300,
+                    0 0 45px #ff3300,
+                    0 0 60px #ff3300,
+                    3px 3px 0px #ff3300,
+                    -3px -3px 0px #ff3300;
+                transform: scale(1.02);
+            }
+        }
+        
+        
+        .contact {
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 12px 25px;
+            border: 1px solid #00d4ff;
+            background: transparent;
+            color: #00d4ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+        }
+        
+        .contact:hover {
+            background: #00d4ff;
+            color: #000;
+            box-shadow: 0 0 30px #00d4ff;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .contact:hover::before {
+            left: 100%;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+        
+        .system-info {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .system-info div {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .arc-reactor { width: 200px; height: 200px; }
+            .arc-core { width: 80px; height: 80px; }
+            .arc-inner { width: 40px; height: 40px; }
+            .arc-ring { width: 140px; height: 140px; }
+            .arc-ring-2 { width: 170px; height: 170px; }
+            .coming-soon { font-size: 4.5rem; letter-spacing: 8px; }
+            .contact { font-size: 1rem; padding: 10px 20px; }
+            .system-info { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="grid"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="system-info">
+        <div>SYSTEM STATUS: ONLINE</div>
+        <div>PROTOCOL: ACTIVE</div>
+        <div>CONNECTION: SECURE</div>
+    </div>
+    
+    <div class="container">
+        <div class="arc-reactor">
+            <div class="arc-core">
+                <div class="arc-inner"></div>
+            </div>
+            <div class="arc-ring"></div>
+            <div class="arc-ring-2"></div>
+        </div>
+        <div class="coming-soon">COMING SOON</div>
+        <a href="mailto:ace.munda@eiseudev.com" class="contact">
+            CONTACT ME
+        </a>
+    </div>
+    
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Add some interactive effects
+        document.addEventListener('mousemove', (e) => {
+            const cursor = { x: e.clientX, y: e.clientY };
+            const particles = document.querySelectorAll('.particle');
+            
+            particles.forEach(particle => {
+                const rect = particle.getBoundingClientRect();
+                const particleCenter = {
+                    x: rect.left + rect.width / 2,
+                    y: rect.top + rect.height / 2
+                };
+                
+                const distance = Math.sqrt(
+                    Math.pow(cursor.x - particleCenter.x, 2) + 
+                    Math.pow(cursor.y - particleCenter.y, 2)
+                );
+                
+                if (distance < 100) {
+                    particle.style.opacity = 1;
+                    particle.style.transform = 'scale(1.5)';
+                } else {
+                    particle.style.opacity = 0.5;
+                    particle.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
